@@ -44,11 +44,11 @@ void updateUBLOX() {
 }
 
 void gpsLEDCheck() {
-  if (ublox_data.sats >= 4 && ublox_data.lat != 0 && !gpsLEDOn && ublox_data.alt < 10000) {
+  if (!gpsLEDOn && ublox_data.sats >= 4 && ublox_data.lat != 0 && ublox_data.alt < 10000) {
     digitalWrite(GPS_PIN, HIGH);
     gpsLEDOn = true;
   }
-  else if(ublox_data.sats < 4 && gpsLEDOn) {
+  else if((ublox_data.sats < 4 || ublox_data.alt > 10000) && gpsLEDOn) {
     digitalWrite(GPS_PIN, LOW);
     gpsLEDOn = false;
   }
