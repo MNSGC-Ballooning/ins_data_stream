@@ -33,6 +33,7 @@ output.magX = dataTable.MagX;
 output.magY = dataTable.MagY;
 output.magZ = dataTable.MagZ;
 output.gpsHeading = dataTable.GPSHeading;
+output.temp = dataTable.ThermTemp;
 
 if  strcmp(imu,'ICM20948')
     output.pitch = dataTable.Pitch;
